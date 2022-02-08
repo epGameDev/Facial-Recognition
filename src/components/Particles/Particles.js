@@ -18,7 +18,7 @@ const Particle = () => {
     loaded={particlesLoaded}
     options={{
       // Removed the background here to make it work.
-      fpsLimit: 30,
+      fpsLimit: 20,
       interactivity: {
         events: {
           onClick: {
