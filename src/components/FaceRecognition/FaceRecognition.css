@@ -1,0 +1,12 @@
+.img-facial--container {
+    margin: 2rem auto;
+    max-width: 55rem;
+    display: flex;
+    justify-content: center;
+}
+
+.img-facial--container > img {
+    width: 100%;
+    border-radius: 6px;
+    z-index: 5;
+}

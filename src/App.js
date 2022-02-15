@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Clarifai from "clarifai";
+import FaceRecognition from "./components/FaceRecognition/FaceRecognition.js"
 import Particle from "./components/Particles/Particles";
 import Navigation from "./components/Navigation/Navigation";
 import Logo from "./components/Logo/Logo";
@@ -8,8 +9,10 @@ import Rank from "./components/Rank/Rank";
 import "./index.css";
 import "./App.css";
 
+
+
 const app = new Clarifai.App({
-  apiKey: 
+  apiKey: APIkey,
  });
 
 class App extends Component {
@@ -25,7 +28,7 @@ class App extends Component {
   };
 
   onButtonSubmit = () => {
-    app.models.predict(, "https://samples.clarifai.com/face-det.jpg")
+    app.models.predict( Clarifai.COLOR_MODEL , "https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2019/09/932/524/the-world-is-not-enough.jpg?ve=1&tl=1")
       .then( 
         function (response) {
           console.log(response);
@@ -43,8 +46,8 @@ class App extends Component {
         <Navigation />
         <Logo />
         <Rank />
-        {/* <FaceRecognition />  */}
         <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+        <FaceRecognition /> 
       </div>
     );
   }
