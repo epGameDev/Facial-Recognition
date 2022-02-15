@@ -18,11 +18,11 @@ const Particle = () => {
     loaded={particlesLoaded}
     options={{
       // Removed the background here to make it work.
-      fpsLimit: 20,
+      fpsLimit: 60,
       interactivity: {
         events: {
           onClick: {
-            enable: true,
+            enable: false,
             mode: "push",
           },
           onHover: {
@@ -59,14 +59,14 @@ const Particle = () => {
           width: 1,
         },
         collisions: {
-          enable: true,
+          enable: false,
         },
         move: {
           direction: "none",
           enable: true,
           outMode: "bounce",
           random: false,
-          speed: 6,
+          speed: 5,
           straight: false,
         },
         number: {
