@@ -9,6 +9,8 @@ import Rank from "./components/Rank/Rank";
 import "./index.css";
 import "./App.css";
 
+const APIkey = "";
+// const testURL = "https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2019/09/932/524/the-world-is-not-enough.jpg?ve=1&tl=1";
 
 
 const app = new Clarifai.App({
@@ -20,18 +22,20 @@ class App extends Component {
     super();
     this.state = {
       input: "",
+      imageURL: "",
     };
   }
 
   onInputChange = (event) => {
-    console.log(event.target.value);
+    this.setState({input: event.target.value});
   };
 
   onButtonSubmit = () => {
-    app.models.predict( Clarifai.COLOR_MODEL , "https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2019/09/932/524/the-world-is-not-enough.jpg?ve=1&tl=1")
+    this.setState({imageURL: this.state.input});
+    app.models.predict( Clarifai.FACE_DETECT_MODEL , this.state.input)
       .then( 
         function (response) {
-          console.log(response);
+          console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
         },
         function (err) {
           //error
@@ -47,7 +51,7 @@ class App extends Component {
         <Logo />
         <Rank />
         <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-        <FaceRecognition /> 
+        <FaceRecognition imageURL={this.state.imageURL}/> 
       </div>
     );
   }
