@@ -3,6 +3,7 @@ import Clarifai from "clarifai";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition.js"
 import Particle from "./components/Particles/Particles";
 import Navigation from "./components/Navigation/Navigation";
+import SignIn from "./components/SignIn/SignIn.js";
 import Logo from "./components/Logo/Logo";
 import ImageLinkForm from "./components/ImageLinkForm/ImageLinkForm.js";
 import Rank from "./components/Rank/Rank";
@@ -66,6 +67,7 @@ class App extends Component {
       <div className="App">
         <Particle />
         <Navigation />
+        <SignIn />
         <Logo />
         <Rank />
         <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
