@@ -78,7 +78,7 @@ https://codepen.io/mamislimen/pen/jOwwLvy
 	outline: none;
 	border: none;
 	border-radius: 5px;
-	transition: .2s ease-in;
+	transition: .1s ease-in;
 	cursor: pointer;
 }
 .signup button:hover,
@@ -91,7 +91,7 @@ https://codepen.io/mamislimen/pen/jOwwLvy
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-12.5rem);
-	transition: .8s ease-in-out;
+	transition: .4s ease-in-out;
 }
 .login label{
     padding-top: 0.8rem;

@@ -25,6 +25,7 @@ class App extends Component {
       input: "",
       imageURL: "",
       box: {},
+      route: "signin",
     };
   }
 
@@ -62,16 +63,23 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  onRouteChange = (path) => {
+    this.setState({route: path})
+  }
+
   render() {
     return (
       <div className="App">
         <Particle />
-        <Navigation />
-        <SignIn />
-        <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-        <FaceRecognition imageURL={this.state.imageURL} box={this.state.box}/> 
+        <Navigation onRouteChange={this.onRouteChange}/>
+        { this.state.route === "signin" ? <SignIn onRouteChange={this.onRouteChange}/> : 
+          <div>
+          <Logo />
+          <Rank />
+          <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
+          <FaceRecognition imageURL={this.state.imageURL} box={this.state.box}/> 
+          </div>
+        }
       </div>
     );
   }

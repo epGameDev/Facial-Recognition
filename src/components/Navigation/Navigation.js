@@ -1,10 +1,10 @@
 import React from "react";
 import "./navigation.css";
 
-const Navigation = () => {
+const Navigation = ({onRouteChange}) => {
     return (
         <nav className="primary-nav">
-            <button type="submit"> Sign Out </button>
+            <button onClick={() => onRouteChange("signin")} type="submit"> Sign Out </button>
         </nav>
     );
 }
