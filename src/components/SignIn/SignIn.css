@@ -62,6 +62,7 @@ https://codepen.io/mamislimen/pen/jOwwLvy
 	outline: none;
 	border-radius: 5px;
     font-size: inherit;
+	font-weight: 500;
 }
 .signup button,
 .login button{

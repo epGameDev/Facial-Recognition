@@ -13,7 +13,7 @@ const SignIn = ({onRouteChange}) => {
                         <label htmlFor="chk" aria-hidden="true">Login</label>
                         <input type="email" name="email" placeholder="Email" required />
                         <input type="password" name="pswd" placeholder="Password" required />
-                        <button onClick={() => onRouteChange("home")}>Login</button>
+                        <button onClick={() => onRouteChange("home")} type="submit">Login</button>
                     </form>
                 </div>
 

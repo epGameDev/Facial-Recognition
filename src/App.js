@@ -11,7 +11,7 @@ import "./index.css";
 import "./App.css";
 
 const APIkey = "ba81953bb71f42a2ba16685ba72965f9";
-// const testURL = "https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2019/09/932/524/the-world-is-not-enough.jpg?ve=1&tl=1";
+
 
 
 const app = new Clarifai.App({
@@ -26,6 +26,7 @@ class App extends Component {
       imageURL: "",
       box: {},
       route: "signin",
+      isSignedIn: false,
     };
   }
 
@@ -64,20 +65,27 @@ class App extends Component {
   }
 
   onRouteChange = (path) => {
+    if (this.route === "signout") {
+      this.setState({isSignedIn: false})
+    } else if (this.route === "home") {
+      this.setState({isSignedIn: true})
+    }
     this.setState({route: path})
   }
 
   render() {
+    const {/*isSignedIn,*/ imageURL, route, box} = this.state;
+
     return (
       <div className="App">
         <Particle />
-        <Navigation onRouteChange={this.onRouteChange}/>
-        { this.state.route === "signin" ? <SignIn onRouteChange={this.onRouteChange}/> : 
+        { route === "signin" ? <SignIn onRouteChange={this.onRouteChange}/> : 
           <div>
+          <Navigation onRouteChange={this.onRouteChange}/>
           <Logo />
           <Rank />
           <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit} />
-          <FaceRecognition imageURL={this.state.imageURL} box={this.state.box}/> 
+          <FaceRecognition imageURL={imageURL} box={box}/> 
           </div>
         }
       </div>
