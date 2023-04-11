@@ -1,5 +1,5 @@
 import { Component } from "react";
-import Clarifai from "clarifai";
+// import Clarifai from "clarifai";
 import FaceRecognition from "./components/FaceRecognition/FaceRecognition.js"
 import Particle from "./components/Particles/Particles";
 import Navigation from "./components/Navigation/Navigation";
@@ -14,9 +14,9 @@ const APIkey = "ba81953bb71f42a2ba16685ba72965f9";
 
 
 
-const app = new Clarifai.App({
-  apiKey: APIkey,
- });
+// const app = new Clarifai.App({
+//   apiKey: APIkey,
+// });
 
 class App extends Component {
   constructor() {
@@ -58,10 +58,10 @@ class App extends Component {
     const inputField = document.querySelector(".image-input");
     this.setState({imageURL: this.state.input});
 
-    app.models.predict( Clarifai.FACE_DETECT_MODEL , this.state.input)
-      .then( response => this.displayFacePosition(this.calculateFacePosition(response)))
-      .then(inputField.value = "")
-      .catch(err => console.log(err));
+    // app.models.predict( Clarifai.FACE_DETECT_MODEL , this.state.input)
+    //   .then( response => this.displayFacePosition(this.calculateFacePosition(response)))
+    //   .then(inputField.value = "")
+    //   .catch(err => console.log(err));
   }
 
   onRouteChange = (path) => {
